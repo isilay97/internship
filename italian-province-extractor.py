@@ -50,7 +50,7 @@ def extract_text_with_pdfplumber(pdf_path):
     try:
         with pdfplumber.open(pdf_path) as pdf:
             if pdf.metadata.get("Encrypted"):  # Checks if PDF is encrypted
-                print("🔒 PDF is encrypted. Attempting to open...")
+                print("PDF is encrypted. Attempting to open...")
                 pdf.decrypt("")  # Tries opening with an empty password
 
             for page in pdf.pages:
@@ -60,7 +60,7 @@ def extract_text_with_pdfplumber(pdf_path):
 
         return text.strip() if text.strip() else None
     except Exception as e:
-        print(f"❌ pdfplumber error (possible encryption issue): {e}")
+        print(f"pdfplumber error (possible encryption issue): {e}")
         return None
 
 
@@ -69,7 +69,7 @@ def extract_text_with_ocr(pdf_path):
     try:
         images = convert_from_path(pdf_path)
         if not images:
-            print("⚠️ OCR: Could not generate images from PDF.")
+            print("OCR: Could not generate images from PDF.")
             return None
 
         text = ""
@@ -78,7 +78,7 @@ def extract_text_with_ocr(pdf_path):
 
         return text.strip() if text.strip() else None
     except Exception as e:
-        print(f"❌ OCR error: {e}")
+        print(f"OCR error: {e}")
         return None
 
 
@@ -91,7 +91,7 @@ def safe_process_airtable_pdfs_and_return_text(record):
     # Fetch PDF URL and download it
     attachments = record.get("fields", {}).get("Attachments", [])
     if not attachments:
-        print(f"⚠️ No attachments found for record {record['id']}")
+        print(f"No attachments found for record {record['id']}")
         return None
 
     pdf_url = attachments[0]['url']
@@ -112,7 +112,7 @@ def safe_process_airtable_pdfs_and_return_text(record):
         return extract_text_with_ocr(pdf_path)
 
     except Exception as e:
-        print(f"❌ Error processing PDF: {e}")
+        print(f"Error processing PDF: {e}")
         return None
 
 
@@ -160,7 +160,7 @@ def trim_text(text, max_tokens=80000):
     tokens = tokenizer.encode(text)
 
     if len(tokens) > max_tokens:
-        print(f"⚠️ Trimming text: Original size {len(tokens)} tokens → Reduced to {max_tokens} tokens")
+        print(f"Trimming text: Original size {len(tokens)} tokens → Reduced to {max_tokens} tokens")
         trimmed_text = tokenizer.decode(tokens[:max_tokens])  # Keep only first max_tokens
         return trimmed_text
     return text
@@ -184,7 +184,7 @@ def summarize_text(text):
         )
         return response['choices'][0]['message']['content']
     except Exception as e:
-        print(f"❌ Error during summarization: {e}")
+        print(f"Error during summarization: {e}")
         return text[:20000]  # As a fallback, return only the first 20,000 characters
 
 
@@ -289,7 +289,7 @@ def update_airtable_record_with_provinces(table, record_id, provinces, available
     matched_choices = []  # List to store successfully matched provinces
     unmatched_provinces = []  # List for unmatched provinces
 
-    # ✅ Normalize the extracted province names from ChatGPT
+    #Normalize the extracted province names from ChatGPT
     chatgpt_provinces_normalized = [normalize_name(province) for province in provinces]
 
     for province in chatgpt_provinces_normalized:
@@ -309,13 +309,13 @@ def update_airtable_record_with_provinces(table, record_id, provinces, available
 
     try:
         if matched_choices:
-            # ✅ Update the Airtable record with the matched provinces
+            #Update the Airtable record with the matched provinces
             table.update(record_id, {"Tipo di campo isilay": matched_choices})
-            print(f"✅ Record {record_id} successfully updated with provinces: {matched_choices}\n")
+            print(f"Record {record_id} successfully updated with provinces: {matched_choices}\n")
         else:
-            print(f"⚠️ No valid provinces found for record {record_id}. Skipping update.\n")
+            print(f"No valid provinces found for record {record_id}. Skipping update.\n")
     except Exception as e:
-        print(f"❌ Error updating record {record_id}: {e}\n")
+        print(f"Error updating record {record_id}: {e}\n")
 
 
 
@@ -393,22 +393,22 @@ def main():
         text = process_airtable_pdfs_and_return_text(record)
 
         if text is None:
-            print(f"⚠️ No PDF attachment found for record {record['id']}. Skipping...\n")
+            print(f"No PDF attachment found for record {record['id']}. Skipping...\n")
             continue
 
         text = summarize_text(text)
 
-        # ✅ Extract the specific section before calling ChatGPT
+        # Extract the specific section before calling ChatGPT
         specific_section_text = extract_specific_section(text)
 
         if text is None:
-            print(f"⚠️ No PDF attachment found for record {record['id']}. Skipping...\n")
+            print(f"No PDF attachment found for record {record['id']}. Skipping...\n")
             continue
 
-        # ✅ Extract the specific section before calling ChatGPT
+        # Extract the specific section before calling ChatGPT
         specific_section_text = extract_specific_section(text)
 
-        # ✅ Call ChatGPT with the extracted section
+        # Call ChatGPT with the extracted section
         result = call_chatgpt(specific_section_text)
 
         provinces = extract_provinces_from_chatgpt_result(result)
@@ -420,7 +420,7 @@ def main():
         )
 
 
-# ✅ Ensures that the script runs only when executed directly
+# Ensures that the script runs only when executed directly
 if __name__ == "__main__":
     main()
 
