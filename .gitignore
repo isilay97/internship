@@ -1,0 +1,10 @@
+# Byte-compiled / optimized Python files
+__pycache__/
+*.py[cod]
+
+# Environment variables and local secrets
+.env
+local_variables.py
+
+# Temporary files and directories
+/tmp/
