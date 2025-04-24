@@ -1,4 +1,5 @@
 
+This repo is public for visibility only.
 
 # Internship Code Collection
 
