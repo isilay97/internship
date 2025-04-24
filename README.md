@@ -2,6 +2,8 @@
 
 # Internship Code Collection
 
+
+
 This repository contains all the scripts I developed during my internship. It includes three main Python tools:
 
 1. Italian Province Extractor (`italian_province_extractor.py`)  
