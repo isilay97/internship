@@ -1,19 +1,20 @@
-# Python cache
+# Python bytecode files
 __pycache__/
 *.py[cod]
 
-# Environment variables / secrets
+# Environment variables and local secrets
 .env
 local_variables.py
 
-# Log dosyaları
+# Log files
 *.log
 
-# CSV çıktıları
+# Generated CSV files
 *.csv
 
-# Geçici dizinler
+# Temporary directories
 /tmp/
 
-# (Opsiyonel) Virtualenv
+# (Optional) Virtual environment folder
 venv/
+
