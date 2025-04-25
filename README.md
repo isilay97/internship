@@ -10,7 +10,7 @@ This repository contains all the scripts I developed during my internship. It in
 1. Italian Province Extractor (`italian_province_extractor.py`)  
    Downloads PDFs from Airtable records, identifies Italian provinces mentioned using GPT-4, and writes them back in `(XX) Province Name` format.
 
-2. Hospitality Business Contact Finder (`business_finder.py`)  
+2. Business Contact Finder (`business_finder.py`)  
    Searches for hotels, restaurants, bars, cafés, etc., using Google Places, Yelp Fusion or OpenStreetMap APIs; extracts phone, website and email contacts; and saves results to a CSV file.
 
 3. De Minimis Checker (`detect_deminimis.py`)  
