@@ -5,7 +5,7 @@ This repo is public for visibility only.
 
 
 
-This repository contains all the scripts I developed during my internship. It includes three main Python tools:
+This repository contains all the scripts I developed during my internship. It includes three main Python projects:
 
 1. Italian Province Extractor (`italian_province_extractor.py`)  
    Downloads PDFs from Airtable records, identifies Italian provinces mentioned using GPT-4, and writes them back in `(XX) Province Name` format.
