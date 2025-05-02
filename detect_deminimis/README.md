@@ -19,7 +19,6 @@ Results are directly written to a checkbox field in the Airtable table.
 - PDF text extraction  
 - Airtable API
 
-## Purpose
-This is a showcase project for technical demonstration only. Not intended for external execution or deployment.
+
 
 > This project was part of an internal automation effort during my internship.
