@@ -1,20 +1,41 @@
-# Python bytecode files
+# Python bytecode
 __pycache__/
 *.py[cod]
+*$py.class
 
-# Environment variables and local secrets
+# Config & secrets
 .env
+*.env
 local_variables.py
+
+# API keys fallback (OpenAI, Airtable)
+access_airtable.py
 
 # Log files
 *.log
 
-# Generated CSV files
+# Output / result files
 *.csv
+*.json
 
-# Temporary directories
+# Temp PDF files (OCR)
+*.pdf
+*.png
+*.jpg
+*.jpeg
+/temp_fallback.pdf
+
+# macOS & system files
+.DS_Store
+Thumbs.db
+
+# VS Code / JetBrains IDEs
+.vscode/
+.idea/
+
+# Jupyter (if ever used)
+.ipynb_checkpoints/
+
+# Temporary dirs
 /tmp/
-
-# (Optional) Virtual environment folder
-venv/
-
+.cache/
