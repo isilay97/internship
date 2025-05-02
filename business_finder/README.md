@@ -13,5 +13,3 @@ Extracts contact information such as email, phone number, and website, with fall
 ## Technologies
 Python, Requests, Google Places API, Yelp Fusion API, Overpass API, CSV
 
-## Purpose
-This is a showcase project for technical demonstration only. Not intended for external execution or deployment.
