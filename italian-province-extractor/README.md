@@ -24,6 +24,3 @@ The result is written back into a multiple-select field in Airtable using standa
 
 ## Notes
 This project was developed during my internship and used to process over 100 real funding documents with automated geographic targeting.
-
-## Purpose
-This is a showcase project for technical demonstration only. Not intended for external execution or deployment.
