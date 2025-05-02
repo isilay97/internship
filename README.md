@@ -1,20 +1,36 @@
 
-This repo is public for visibility only.
-
-# Internship Code Collection
 
 
+# Internship Projects – Automation & AI Integrations
 
-This repository contains all the scripts I developed during my internship. It includes three main Python projects:
-
-1. Italian Province Extractor (`italian_province_extractor.py`)  
-   Downloads PDFs from Airtable records, identifies Italian provinces mentioned using GPT-4, and writes them back in `(XX) Province Name` format.
-
-2. Business Contact Finder (`business_finder.py`)  
-   Searches for hotels, restaurants, bars, cafés, etc., using Google Places, Yelp Fusion or OpenStreetMap APIs; extracts phone, website and email contacts; and saves results to a CSV file.
-
-3. De Minimis Checker (`detect_deminimis.py`)  
-   Scans PDF text for the phrase “de minimis” (handling negations) and updates a “Deminimis” checkbox field in Airtable.
+This repository contains a set of demonstration projects I developed during my internship.  
+Each folder includes a separate project involving Python scripting, automation, AI classification, and API integration.
 
 
+## 📁 Projects
+
+### 1. [Business Contact Finder](./business_finder)  
+**Purpose:** Search and collect business contact data (hotels, restaurants, etc.) using multiple APIs (Google Places, Yelp Fusion, OpenStreetMap).  
+- Automatically extracts emails from websites and exports filtered results to CSV.
+
+---
+
+### 2. [De Minimis Clause Detector](./detect_deminimis)  
+**Purpose:** Scan PDF documents attached to Airtable records for presence of “De Minimis” clause.  
+- Uses Italian NLP (spaCy) to detect the phrase and update a checkbox field in Airtable.
+
+---
+
+### 3. [Province Extractor](./italian-province-extractor)  
+**Purpose:** Extract province names from Italian public funding documents (bandi) using OpenAI GPT-4o.  
+- Supports OCR fallback for scanned PDFs and rule-based parsing to improve LLM input quality.  
+- Results are written back to Airtable using standardized format (e.g., `(TO) Torino`).
+
+---
+
+Explore each folder for detailed project descriptions.
+
+---
+
+> ⚠️ Note: This repository is public for visibility only. The projects are intended for demonstration purposes and may rely on environment-specific variables or API keys.
 
