@@ -23,4 +23,4 @@ The result is written back into a multiple-select field in Airtable using standa
 - Regex + rule-based filters
 
 ## Notes
-This project was developed during my internship and used to process over 100 real funding documents with automated geographic targeting.
+This project was used to process over 100 real funding documents and automatically identify target provinces.
